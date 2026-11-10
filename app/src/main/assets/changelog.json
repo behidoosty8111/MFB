@@ -1,0 +1,185 @@
+[
+  {
+    "id": "rel-phase-03",
+    "versionName": "0.3.0",
+    "versionCode": 3,
+    "phaseNumber": 3,
+    "releaseTitle": "Project Workspace, File Manager & Update Log",
+    "releaseDate": "November 10, 2026",
+    "releaseDescription": "Introduces the full-fledged Project Workspace, internal Project File Explorer with safe file and folder operations, project duplication, source ZIP export, favorites and tags, real project statistics, and the permanent application Update Log system.",
+    "releaseType": "FEATURE_UPDATE",
+    "addedFeatures": [
+      {
+        "category": "Workspace",
+        "title": "Dedicated Project Workspace",
+        "description": "Central management hub for each project with tabbed sections for Overview, Project Files, and Project Actions.",
+        "relatedFeature": "Project Workspace",
+        "technicalNote": "Loads strictly via project ID with reactive Room database flow."
+      },
+      {
+        "category": "Files",
+        "title": "Internal Project File Explorer",
+        "description": "Real-time navigation through project folders, breadcrumb navigation, and file category filtering.",
+        "relatedFeature": "File Explorer",
+        "technicalNote": "Traverses filesDir/projects/{uuid} with path validation."
+      },
+      {
+        "category": "File Operations",
+        "title": "File & Folder Management",
+        "description": "Create new files (.html, .css, .js, .json, .txt) and folders, rename items, and delete with recursive safety confirmation.",
+        "relatedFeature": "File Operations",
+        "technicalNote": "Updates project metadata, total size, and file count after every modification."
+      },
+      {
+        "category": "Project Operations",
+        "title": "Project Duplication & ZIP Export",
+        "description": "Clone existing projects into independent sandboxes with unique UUIDs, or export project source files as a ZIP archive via SAF.",
+        "relatedFeature": "Export & Duplicate",
+        "technicalNote": "Atomic file copy and streaming zip output without memory spikes."
+      },
+      {
+        "category": "Organization",
+        "title": "Project Search, Sorting & Favorites",
+        "description": "Live query search, 6-way sorting (Recent, Created, Name A-Z, Name Z-A, Size), Grid/List toggle, and favorite toggles.",
+        "relatedFeature": "My Projects",
+        "technicalNote": "Backed by Room Database v3 schema migration."
+      },
+      {
+        "category": "Changelog",
+        "title": "Application Update Log System",
+        "description": "Permanent in-app release history viewer with expandable cards and categorized release notes.",
+        "relatedFeature": "Update Log",
+        "technicalNote": "Structured JSON asset source paired with What's New version tracking."
+      }
+    ],
+    "improvedFeatures": [
+      {
+        "category": "UI",
+        "title": "Projects Dashboard Modernization",
+        "description": "Enhanced project cards showing source type badges, entry point indicators, formatted sizes, and real-time statistics banner.",
+        "relatedFeature": "My Projects"
+      },
+      {
+        "category": "Settings",
+        "title": "Version Synchronization",
+        "description": "Installed application version and build number dynamically read from BuildConfig.",
+        "relatedFeature": "About MFB"
+      }
+    ],
+    "bugFixes": [],
+    "securityImprovements": [
+      {
+        "category": "Filesystem",
+        "title": "Path Traversal & Filename Sanitization",
+        "description": "Strict canonical verification prevents directory escapes or arbitrary file manipulation outside the project sandbox.",
+        "relatedFeature": "File Operations",
+        "technicalNote": "Rejects filenames with separators, traversal markers (..), or illegal characters."
+      }
+    ],
+    "removedFeatures": [],
+    "knownIssues": []
+  },
+  {
+    "id": "rel-phase-02",
+    "versionName": "0.2.0",
+    "versionCode": 2,
+    "phaseNumber": 2,
+    "releaseTitle": "Professional Import Engine & Storage Sandbox",
+    "releaseDate": "November 10, 2026",
+    "releaseDescription": "Delivered the native ZIP and HTML import engines, Zip Slip protection, decompression bomb defense quotas, automatic entry point detection, and Room database persistence.",
+    "releaseType": "FEATURE_UPDATE",
+    "addedFeatures": [
+      {
+        "category": "Import",
+        "title": "Native ZIP Archive Ingestion",
+        "description": "Zero-permission SAF archive extraction into private internal application storage.",
+        "relatedFeature": "Import ZIP",
+        "technicalNote": "Streaming decompression using CountingInputStream."
+      },
+      {
+        "category": "Import",
+        "title": "Single-File HTML Document Ingestion",
+        "description": "Direct HTML file importing with markup structure audit and missing asset link warnings.",
+        "relatedFeature": "Import HTML",
+        "technicalNote": "Regex scanning for local css, js, and img tags."
+      },
+      {
+        "category": "Engine",
+        "title": "Intelligent HTML Entry Detector",
+        "description": "Automatic prioritization of index.html, index.htm, or interactive candidate selection for multi-page archives.",
+        "relatedFeature": "Import Engine"
+      }
+    ],
+    "improvedFeatures": [
+      {
+        "category": "Storage",
+        "title": "Project Metadata Sync",
+        "description": "Writes structured project_metadata.json inside project folders alongside SQLite records.",
+        "relatedFeature": "Storage Manager"
+      }
+    ],
+    "bugFixes": [],
+    "securityImprovements": [
+      {
+        "category": "Security",
+        "title": "Zip Slip & Zip Bomb Quotas",
+        "description": "Enforced canonical destination verification, 100:1 ratio limits, 100MB archive cap, and 250MB extracted cap.",
+        "relatedFeature": "ZipSecurityValidator"
+      }
+    ],
+    "removedFeatures": [],
+    "knownIssues": []
+  },
+  {
+    "id": "rel-phase-01",
+    "versionName": "0.1.0",
+    "versionCode": 1,
+    "phaseNumber": 1,
+    "releaseTitle": "Foundation, Architecture & Professional Dashboard",
+    "releaseDate": "November 09, 2026",
+    "releaseDescription": "Initial architectural foundation establishing Clean Architecture, MVVM, Room SQLite database, DataStore preferences, Dark-first M3 theming, and the primary dashboard.",
+    "releaseType": "DEVELOPMENT_MILESTONE",
+    "addedFeatures": [
+      {
+        "category": "Architecture",
+        "title": "Clean Architecture & Dependency Injection",
+        "description": "Modular structure separating core, data, domain, presentation, navigation, and ui packages.",
+        "relatedFeature": "AppContainer"
+      },
+      {
+        "category": "UI",
+        "title": "Material 3 Dark-First Interface",
+        "description": "Design system built around #0B0D12 background, #6C63FF primary accent, and #20C997 secondary accent.",
+        "relatedFeature": "Theme"
+      },
+      {
+        "category": "Dashboard",
+        "title": "Commercial Android Builder Dashboard",
+        "description": "Hero banner with BUILD AN APP call-to-action, recent projects row, recent builds row, and bottom navigation.",
+        "relatedFeature": "Dashboard"
+      }
+    ],
+    "improvedFeatures": [],
+    "bugFixes": [
+      {
+        "category": "Navigation",
+        "title": "BUILD AN APP Navigation",
+        "description": "Connected hero banner to dedicated Import destination with single-top backstack management."
+      },
+      {
+        "category": "UI",
+        "title": "Import Screen Dual Options",
+        "description": "Ensured Import screen cleanly presents exactly two primary options: Import ZIP and Import HTML."
+      }
+    ],
+    "securityImprovements": [
+      {
+        "category": "Storage",
+        "title": "Private Application Sandbox",
+        "description": "All data isolated to internal app-specific storage without requesting dangerous permissions."
+      }
+    ],
+    "removedFeatures": [],
+    "knownIssues": []
+  }
+]
